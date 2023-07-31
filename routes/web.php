@@ -20,12 +20,12 @@ Route::view('/', 'home.index')->name('home');
 
 Route::redirect('/home' , '/')->name('home.redirect');
 
-Route::middleware('quest')->group(function(){
-    Route::get('register', [RegisterController::class, 'index'])->name('register');
-    Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+Route::middleware('guest')->group(function(){
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-    Route::get('login', [LoginController::class, 'index'])->name('login');//->withoutMiddleware('quest');
-    Route::post('login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('/login', [LoginController::class, 'index'])->name('login');//->withoutMiddleware('quest');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 });
 
 
