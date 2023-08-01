@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        FacadesView::share('date', date('Y'));
+
+        FacadesView::composer('user*', function($view){
+            $view->with('balance', '12131231');
+        });
     }
 }

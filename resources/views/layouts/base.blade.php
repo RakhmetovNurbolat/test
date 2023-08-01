@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
     <title>@yield('page.title', config('app.name'))</title>
+    <style>
+        .container { max-width: 720px;}
+        .required::after {content: '*'; color: red; margin-left: 3px;}
+    </style>
 </head>
 <body>
     
-    <div class="d-flex flex-column justify-content-between min-vh-100 text-center">
+    <div class="d-flex flex-column justify-content-between min-vh-100">
         
         @include('includes.header')
 

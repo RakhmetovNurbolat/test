@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +28,10 @@ Route::middleware('guest')->group(function(){
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 });
 
+Route::get('blog', [BlogController::class, 'index'])->name('blog');
+    
+Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::get('/test' , TestController::class);
+Route::post('blog/{post}/like', [BlogController::class, 'store'])->name('blog.store');
 
 //-----------------------------------------------------
