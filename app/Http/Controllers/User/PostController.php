@@ -8,11 +8,17 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        return 'index';
+        $post = (object)[
+            'id' => 10,
+            'title' => 'Погиб один из попавших в аварию в Турции казахстанских туристов',
+            'content' => 'Скончался казахстанский турист, который был госпитализирован и перенес операцию после <strong> ДТП </strong>в турецкой провинции',
+        ];
+        $posts = array_fill(0,10, $post);
+        return view('user.posts.index', compact('posts'));
     }
 
     public function create(){
-        return 'create';
+        return view('user.posts.create');
     }
 
     public function store(){
@@ -20,11 +26,23 @@ class PostController extends Controller
     }
 
     public function show( $post ){
-        return 'show '.$post;
+        $post = (object)[
+            'id' => 10,
+            'title' => 'Погиб один из попавших в аварию в Турции казахстанских туристов',
+            'content' => 'Скончался казахстанский турист, который был госпитализирован и перенес операцию после <strong> ДТП </strong>в турецкой провинции',
+        ];
+        $posts = array_fill(0,10, $post);
+        return view('user.posts.show ',compact('post'));
     }
 
     public function edit( $post){
-        return 'edit'.$post;
+        $post = (object)[
+            'id' => 10,
+            'title' => 'Погиб один из попавших в аварию в Турции казахстанских туристов',
+            'content' => 'Скончался казахстанский турист, который был госпитализирован и перенес операцию после <strong> ДТП </strong>в турецкой провинции',
+        ];
+        $posts = array_fill(0,10, $post);
+        return view('user.posts.edit',compact('post'));
     }
     public function update( $post ){
         return 'update'.$post;

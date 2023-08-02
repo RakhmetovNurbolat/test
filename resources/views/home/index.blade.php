@@ -1,9 +1,9 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
-    
-
-@section('content')
-    <h1>
-        MAIN
-    </h1>
+@section('main.content')
+    <div class="text-center">
+        <h1>
+            MAIN
+        </h1>
+    </div>
 @endsection
