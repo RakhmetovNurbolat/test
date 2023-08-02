@@ -34,11 +34,11 @@
 
                 <x-form-item>
                     <x-label required> {{__('Repeat password')}} </x-label>
-                    <x-input type="password" name="password" />
+                    <x-input type="password" name="password_repeat" />
                 </x-form-item>
 
                 <x-form-item>
-                    <x-checkbox name="remember">
+                    <x-checkbox name="agreement">
                         {{__('Согласень')}}
                     </x-checkbox>
                 </x-form-item>

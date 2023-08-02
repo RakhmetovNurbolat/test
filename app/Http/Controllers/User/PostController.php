@@ -21,7 +21,12 @@ class PostController extends Controller
         return view('user.posts.create');
     }
 
-    public function store(){
+    public function store(Request $request){
+        
+        // dd($request->all());
+        $title = $request->input('title');
+        $content = $request->input('content');
+        dd($title, $content);
         return 'store';
     }
 
@@ -44,7 +49,10 @@ class PostController extends Controller
         $posts = array_fill(0,10, $post);
         return view('user.posts.edit',compact('post'));
     }
-    public function update( $post ){
+    public function update(Request $request, $post ){
+        $title = $request->input('title');
+        $content = $request->input('content');
+        dd($title, $content);
         return 'update'.$post;
     }
     public function delete($post){

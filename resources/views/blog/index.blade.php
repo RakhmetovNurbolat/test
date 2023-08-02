@@ -6,6 +6,9 @@
         <x-title>
             {{__('BLOG')}}
         </x-title>
+
+        @include('blog.fillter')
+
         @empty($posts)
             Empty
         @else
