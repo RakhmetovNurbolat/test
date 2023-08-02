@@ -22,5 +22,6 @@ class LoginController extends Controller
 
         // dd($email, $password, $remember);
         return "view('login.store')";
+        
     }
 }
