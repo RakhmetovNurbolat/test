@@ -9,8 +9,6 @@
         <x-label required>  {{__('Content')}} </x-label>
         <x-trix name="content" value="{{$post->content ?? ''}}" />
     </x-form-item>
-    <x-button type="sumbit">
-        {{__('Send')}}
-    </x-button>
+    {{ $slot }}
     
 </x-form>

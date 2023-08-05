@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home.index')->name('home');
 
 Route::redirect('/home' , '/')->name('home.redirect');
+
+Route::get('/test', TestController::class)->name('test');
 
 Route::middleware('guest')->group(function(){
     Route::get('/register', [RegisterController::class, 'index'])->name('register');

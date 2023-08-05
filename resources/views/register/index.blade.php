@@ -19,7 +19,7 @@
             <x-form action=" {{route('register.store')}} " method="POST">
                 <x-form-item>
                     <x-label required> {{__('Name')}} </x-label>
-                    <x-input name="name" autofocus />
+                    <x-input name="name"  autofocus />
                 </x-form-item>
                 
                 <x-form-item>
@@ -38,7 +38,7 @@
                 </x-form-item>
 
                 <x-form-item>
-                    <x-checkbox name="agreement">
+                    <x-checkbox name="agreement" >
                         {{__('Согласень')}}
                     </x-checkbox>
                 </x-form-item>

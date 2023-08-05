@@ -15,17 +15,20 @@ class RegisterController extends Controller
         //$data = $request->only(['name','login']);
         //$data = $request->except(['name','login']);
         //$data = $request->all();
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $agreement = $request->boolean('agreement');
+        // $name = $request->input('name');
+        // $email = $request->input('email');
+        // $password = $request->input('password');
+        // $agreement = $request->boolean('agreement');
         
         // dd($name, $email, $remember);
         // dd($request->has('name')); // proverka na premen
         // dd($request->filled('name')); // na pustaty
         //dd($request->missing('name')); // 
-        dd($name, $email, $password, $agreement);
-        return 'HI';
+        //dd($name, $email, $password, $agreement);
+        if(true){
+            return redirect()->back()->withInput();
+        }
+        // return redirect()->route('user');
     }
 
 }

@@ -24,10 +24,12 @@ class PostController extends Controller
     public function store(Request $request){
         
         // dd($request->all());
-        $title = $request->input('title');
-        $content = $request->input('content');
-        dd($title, $content);
-        return 'store';
+        // $title = $request->input('title');
+        // $content = $request->input('content');
+        // dd($title, $content);
+
+        // $post = new Post;
+        return redirect()->route('user.posts.show', 123);
     }
 
     public function show( $post ){
@@ -52,10 +54,11 @@ class PostController extends Controller
     public function update(Request $request, $post ){
         $title = $request->input('title');
         $content = $request->input('content');
-        dd($title, $content);
-        return 'update'.$post;
+        //dd($title, $content);
+        //return redirect()->route('user.posts.show', $post);
+        // return redirect()->back();
     }
     public function delete($post){
-        return 'delete'.$post;
+        return redirect()->route('user.posts');
     }
 }

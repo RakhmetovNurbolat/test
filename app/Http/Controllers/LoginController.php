@@ -21,7 +21,10 @@ class LoginController extends Controller
         // $remember = $request->boolean('remember');
 
         // dd($email, $password, $remember);
-        return "view('login.store')";
+        //return "view('login.store')";
+        // return response()->redirectTo('/foo');
+        // return response()->redirectToRoute('user');
+        return redirect()->route('user');
         
     }
 }

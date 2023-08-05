@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function __invoke(){
-        return 'TEST';
+    public function __invoke(Request $request){
+        //return 'TEST';
+        return response('test', 200, [
+            'foo'=> 'bar',
+        ]);
     }
 }
