@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function index(){
+        // $foo = session()->get('foo');
+        $foo = session('foo');
+        //dd($foo);
         return view('login.index');
     }
 
@@ -24,6 +27,16 @@ class LoginController extends Controller
         //return "view('login.store')";
         // return response()->redirectTo('/foo');
         // return response()->redirectToRoute('user');
+        
+        //    $session = session();
+        //    $session->put('foo','bar');
+        //    session()->put('foo','bar');
+        // session(['foo'=>'Bar']);
+        // return redirect()->back()->withInput();
+
+        session(['alert'=> ]);
+        alert(__('welcome To'));
+
         return redirect()->route('user');
         
     }
