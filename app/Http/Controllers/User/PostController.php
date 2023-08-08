@@ -55,8 +55,8 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
         //dd($title, $content);
-        //return redirect()->route('user.posts.show', $post);
-        // return redirect()->back();
+        return redirect()->route('user.posts.show', $post);
+        //return redirect()->back();
     }
     public function delete($post){
         return redirect()->route('user.posts');

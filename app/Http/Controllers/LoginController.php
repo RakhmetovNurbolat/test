@@ -34,7 +34,6 @@ class LoginController extends Controller
         // session(['foo'=>'Bar']);
         // return redirect()->back()->withInput();
 
-        session(['alert'=> ]);
         alert(__('welcome To'));
 
         return redirect()->route('user');

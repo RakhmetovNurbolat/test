@@ -7,10 +7,10 @@
             {{$post->title}}
 
             <x-slot name="link">
-                <a href="{{route('blog')}}">
+                <a href="{{ route('blog') }}">
                     prev
                 </a>
             </x-slot>
         </x-title>
-        {!!$post->content!!}
+        {!! $post->content !!}
 @endsection
