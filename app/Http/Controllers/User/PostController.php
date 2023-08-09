@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class PostController extends Controller
 {
@@ -21,14 +24,40 @@ class PostController extends Controller
         return view('user.posts.create');
     }
 
-    public function store(Request $request){
-        
+    public function store(StorePostRequest $request){
+        $validated = $request->validated();
         // dd($request->all());
         // $title = $request->input('title');
         // $content = $request->input('content');
         // dd($title, $content);
 
         // $post = new Post;
+
+        // $validated = validator($request->all(), [
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:100000'],
+        // ])->validate();
+
+        // $validated = $request->validate([
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:100000'],
+        // ]);
+        
+        // $validated = validate($request->all(), [
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:100000'],
+        // ]);       
+        
+        $validated = validate($request->all(), Post::getRules());     
+
+        //dd($validated);
+
+        // if(true){
+        //     throw ValidationException::withMessages([
+        //         'account' => __('Now price'),
+        //     ]);
+        // }
+
         return redirect()->route('user.posts.show', 123);
     }
 
