@@ -13,12 +13,7 @@ use Illuminate\Validation\ValidationException;
 class PostController extends Controller
 {
     public function index(){
-        $post = (object)[
-            'id' => 10,
-            'title' => 'Погиб один из попавших в аварию в Турции казахстанских туристов',
-            'content' => 'Скончался казахстанский турист, который был госпитализирован и перенес операцию после <strong> ДТП </strong>в турецкой провинции',
-        ];
-        $posts = array_fill(0,10, $post);
+        $posts = Post::query()->paginate(12);
         return view('user.posts.index', compact('posts'));
     }
 
@@ -66,6 +61,7 @@ class PostController extends Controller
             'published_at'  => ['nullable', 'string', 'date'],
             'published'     => ['nullable', 'boolean'],
         ]);
+
         $post = Post::query()->create([
             'user_id'       => User::query()->value('id'),
             'title'         => $validated['title'],
@@ -74,6 +70,18 @@ class PostController extends Controller
             'published'     => $validated['published'] ?? false,
         ]);
 
+
+        // for($i = 0; $i<50; $i++){
+        //     $post = Post::query()->create([
+        //         'user_id'       => User::query()->value('id'),
+        //         'title'         => fake()->sentence(),
+        //         'content'       => fake()->paragraph(),
+        //         'published_at'  => fake()->dateTimeBetween(now()->subYear(), now()),
+        //         'published'     => true,
+        //     ]);
+        // }
+
+        // echo 'ok';
         //dd($post->toArray());
         alert(__('Сохранено!'));
         return redirect()->route('user.posts.show', 123);
